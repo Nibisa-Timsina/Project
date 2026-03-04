@@ -1,17 +1,16 @@
 #pragma once
 #include<string>
-#include"SYSTEM.h"
-#include"GUEST.h"
-#include"CLIENT.h"
-#include"ADMIN.h"
+#include"USER.h"
 #include"AUTHORITY_SERVICE.h"
+#include"USER_ACCOUNT.h"
 class SYSTEM
 {
     private:
+    USER* current_user;
     AUTHORITY_SERVICE auth;
-    GUEST guest;
-    CLIENT client;
-    ADMIN admin;
     public:
-    
+    SYSTEM();
+    USER* process(bool isLogin, USER_ACCOUNT account); 
+    void logoutCurrentUser();
 };
+

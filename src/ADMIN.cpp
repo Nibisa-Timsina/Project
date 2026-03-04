@@ -5,9 +5,9 @@ using namespace std;
 #include"../include/PRODUCT.h"
 #include"../include/AUTHORITY_SERVICE.h"
 #include<string>
-ADMIN:: ADMIN(const std:: string& pass):: USER()
+ADMIN:: ADMIN(const std:: string& pass): USER()
 {
-  pass =" ";
+this -> passcode= pass;
 }
 bool ADMIN:: authenticate(AUTHORITY_SERVICE& auth) 
 {
@@ -25,4 +25,4 @@ void  ADMIN:: searchProduct(std:: string){}
 void ADMIN :: manageProduct(std:: string){}
 void ADMIN :: deleteProduct(std:: string productName){}
 void ADMIN:: updateProduct(PRODUCT product){}
-void manageSalesReport(){}
+void ADMIN:: manageSalesReport(){}

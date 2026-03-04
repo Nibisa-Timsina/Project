@@ -10,8 +10,8 @@ class GUEST: public USER
     public:
     GUEST();
     ~GUEST();
-    bool virtual authenticate(AUTHORITY_SERVICE& auth)=0;
-    void virtual  performAction()=0;
+    bool authenticate(AUTHORITY_SERVICE& auth);
+    void performAction();
 
     std::string getUsername() const override { return username; }
     void viewProducts();

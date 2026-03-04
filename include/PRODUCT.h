@@ -1,16 +1,15 @@
 #pragma once
 #include<string>
-#include"../include/CLIENT.h"
 class PRODUCT
 {
     public:
-    std:: string prodctName;
+    std::string prodctName;
     double price;
     int quantity;
-    std:: string category;
+    std::string category;
 
     private:
-    std:: string getProduct();
+    std::string getProduct();
     double getPrice();
     void setPrice(double price);
     int getQuantity();

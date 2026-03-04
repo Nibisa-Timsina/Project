@@ -1,8 +1,7 @@
 #pragma once
 #include "../include/USER_ACCOUNT.h"
 #include "CART.h"
-#include"AUTHORITY_SERVICE.h"
-
+class AUTHORITY_SERVICE;
 
 #include<string>
 class USER
@@ -16,14 +15,16 @@ class USER
    public:
     USER();
     virtual bool authenticate(AUTHORITY_SERVICE& auth)=0;
-    virtual void peroformAction()=0;
+    virtual void performAction()=0;
     virtual std:: string getUsername() const=0;
     virtual ~USER()=default;
-    virtual void viewProduct()=0;
-    virtual void searchProduct()=0;
-    virtual void addToCart()=0;
-    void checkout();
-    USER_ACCOUNT getAccount();
-    Authority getAuthority();
+    virtual void viewProduct(std:: string)=0;
+    virtual void searchProduct(std:: string)=0;
+    virtual void addToCart();
+    virtual void checkout();
+   
+    USER_ACCOUNT getAccount() const;
+    Authority getAuthority() const;
+    
 
 };

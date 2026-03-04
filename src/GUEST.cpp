@@ -10,11 +10,11 @@ GUEST:: GUEST(): USER()
 
 }
 
-    bool GUEST::  authenticate(Authority_Service& auth) override {
-        return auth.registerUser(username); // Guest registration
+    bool GUEST::  authenticate(AUTHORITY_SERVICE& auth)  {
+        return auth.verifyClient(username, password); // Guest registration
     }
 
-void GUEST:: performAction() override { std::cout << "Guest browsing\n"; }
+void GUEST:: performAction() { std::cout << "Guest browsing\n"; }
 void GUEST :: registerToSystem(){
     cout<<"Enter your Full-Name: ";
     cin>>full_name;

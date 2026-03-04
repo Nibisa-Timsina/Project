@@ -11,7 +11,7 @@ class ADMIN: public USER
     ADMIN(const std:: string & pass );
     bool authenticate(AUTHORITY_SERVICE& auth);
     void performAction();
-    std:: string getUsername() const=0;
+    std:: string getUsername() const;
     void viewProduct();
     void searchProduct(std::string);
     void manageProduct(std:: string);

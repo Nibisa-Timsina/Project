@@ -4,20 +4,23 @@
 #include"../include/PRODUCT.h"
 #include"AUTHORITY_SERVICE.h"
 #include<string>
-class SELLER: public USER
+#include"USER_ACCOUNT.h"
+class BUYER: public USER
 {
     private:
-    BILL purchaseHistory;
+    //BILL purchaseHistory;
     public:
+    BUYER(USER_ACCOUNT Bdetails);
+
     bool authenticate(AUTHORITY_SERVICE& auth);
-    void peroformAction();
-    std:: string getUsername() const=0;
-    void viewProduct();
-    void searchPRoduct();
-    void addTocart();
+    void performAction();
+    std:: string getUsername() const;
+    void viewProduct(std:: string);
+    void searchProduct(std:: string);
+    void addToCart();
     void checkout();
     void myProducts();
-    BILL placeOrder();
+    void placeOrder();
     void viewCart();
     void editCart();
     void requestBill();
