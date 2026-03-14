@@ -20,7 +20,7 @@ public:
     void setQuantity(int qty);
     int getQuantity();
     string getCategory();
-    void displayInfo();
+    void displayInfo() const;
     void updateQuantity(int qty);
     bool operator<(const PRODUCT &other) const;
 };

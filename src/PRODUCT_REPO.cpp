@@ -2,6 +2,7 @@
 #include<iostream>
 #include"PRODUCT.h"
 #include<set>
+#include<queue>
 using namespace std;
 
 void PRODUCT_REPO:: addProduct(PRODUCT product)
@@ -135,5 +136,25 @@ void PRODUCT_REPO:: updateProduct()
         
     }
 }
-
+void PRODUCT_REPO:: searchByName(string name)
+{
+    for(int i=0; i<all_products.size(); i++)
+    {
+        if(name==all_products[i].getName())
+        {
+            all_products[i].displayInfo();
+        }
+    }
+}
+void PRODUCT_REPO:: getAllProducts()
+{
+    int total_count = all_products.size();
+    auto temp = sorted_price;
+    while(!temp.empty())
+    {
+        temp.top().displayInfo();
+        temp.pop();
+    }
+    cout<<"Available Products In System: "<<total_count<<endl;
+}
     

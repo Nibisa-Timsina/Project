@@ -17,6 +17,6 @@ class PRODUCT_REPO
         void addProduct(PRODUCT product);
         void removeProduct();
         void updateProduct();
-        vector<PRODUCT> searchByName(string name);
-        vector<PRODUCT> getAllProducts();
+        void searchByName(string name);
+        void getAllProducts();
 };
