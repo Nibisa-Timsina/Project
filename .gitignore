@@ -1,0 +1,15 @@
+# Ignore executables
+*.exe
+
+# Ignore Visual Studio folders and files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build outputs
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
