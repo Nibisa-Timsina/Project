@@ -12,14 +12,14 @@ class PRODUCT
 
 public:
     PRODUCT();
-    PRODUCT(string product_category, std:: string product_name, double product_price,int product_qty );
-    void setName(string name);
-    std:: string getName();
+    PRODUCT(std::string product_category, std::string product_name, double product_price, int product_qty);
+    void setName(std::string name);
+    std::string getName();
     void setPrice(double price);
     double getPrice();
     void setQuantity(int qty);
     int getQuantity();
-    string getCategory();
+    std::string getCategory();
     void displayInfo() const;
     void updateQuantity(int qty);
     bool operator<(const PRODUCT &other) const;
