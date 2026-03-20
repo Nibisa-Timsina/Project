@@ -8,17 +8,48 @@ using namespace std;
 SYSTEM::SYSTEM()
     : current_user(nullptr){}
 
+bool SYSTEM::registerAccount(const USER_ACCOUNT& account)
+{
+    return auth.registerUser(account);
+}
+
+USER* SYSTEM::loginAccount(const std::string& username, const std::string& password)
+{
+    if (current_user)
+    {
+        delete current_user;
+        current_user = nullptr;
+    }
+
+    current_user = auth.login(username, password);
+    return current_user;
+}
+
+bool SYSTEM::adminLogin(const std::string& passcode)
+{
+    return auth.verifyAdmin(passcode);
+}
+
+std::vector<USER_ACCOUNT> SYSTEM::getAllUsers() const
+{
+    return auth.getAllRegisteredUsers();
+}
+
+bool SYSTEM::deleteUser(const std::string& username)
+{
+    return auth.deleteUserByUsername(username);
+}
+
  USER* SYSTEM:: process(bool isLogin, USER_ACCOUNT account)
 {
    if(!isLogin)
    {
-         auth.registerUser(account);
+         registerAccount(account);
          return nullptr;
    }
    else
    {
-         current_user= auth.login(account.getUsername(), account.getPassword());
-        return current_user; 
+         return loginAccount(account.getUsername(), account.getPassword()); 
    }
 }
 
@@ -31,6 +62,7 @@ void SYSTEM::logoutCurrentUser()
     }
 
     std::string uname = current_user->getUsername();
+    delete current_user;
     current_user = nullptr;
     cout << "Session ended for " << uname << endl;
 }

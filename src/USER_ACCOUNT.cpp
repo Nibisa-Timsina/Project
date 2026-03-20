@@ -36,17 +36,37 @@ void USER_ACCOUNT::setAuthority(Authority auth)
 {
     authority = auth;   
 }
-string USER_ACCOUNT:: getFullname()
+string USER_ACCOUNT:: getFullname() const
 {
     return full_name;
 }
 
-string USER_ACCOUNT::getPassword()
+string USER_ACCOUNT::getPassword() const
 {
     return password;
 }
 
-string USER_ACCOUNT::getUsername()
+string USER_ACCOUNT::getUsername() const
 {
     return username;
+}
+
+string USER_ACCOUNT::getContactNumber() const
+{
+    return contact_num;
+}
+
+int USER_ACCOUNT::getAge() const
+{
+    return age;
+}
+
+string USER_ACCOUNT::getLocation() const
+{
+    return location;
+}
+
+string USER_ACCOUNT::getMailAddress() const
+{
+    return mail_address;
 }
