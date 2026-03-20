@@ -10,7 +10,6 @@ USER::USER()
     username = " ";
     password = " ";
     age = 0;
-    // user_acc will be initialized by subclasses
 }
 USER_ACCOUNT USER::getAccount() const {
     return user_acc;
