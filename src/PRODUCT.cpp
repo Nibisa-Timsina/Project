@@ -19,21 +19,21 @@ void PRODUCT:: setName( string name)
 {
     this-> product_name= name;
 }
-std:: string PRODUCT:: getName(){ return product_name;}
+std::string PRODUCT::getName() const { return product_name;}
 void PRODUCT:: setPrice( double price)
 {
     this-> product_price= price;
 }
-double PRODUCT:: getPrice(){ return product_price; }
+double PRODUCT::getPrice() const { return product_price; }
 void PRODUCT:: setQuantity( int qty)
 {
     this-> product_qty= qty;
 }
-int PRODUCT:: getQuantity()
+int PRODUCT::getQuantity() const
 {
     return product_qty;
 }
-string PRODUCT:: getCategory()
+std::string PRODUCT::getCategory() const
 {
     return product_category;
 }

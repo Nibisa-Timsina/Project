@@ -12,7 +12,7 @@ class GUEST: public USER
     ~GUEST();
     bool authenticate(AUTHORITY_SERVICE& auth);
     void performAction();
-
+    void GuestMenu();
     std::string getUsername() const override { return username; }
     void viewProducts();
     void searchProducts(std:: string);

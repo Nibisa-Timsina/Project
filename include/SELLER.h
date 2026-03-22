@@ -14,6 +14,7 @@ class SELLER: public USER
     bool  authenticate(AUTHORITY_SERVICE& auth);
     std:: string getUsername() const;
     void  performAction();
+    void SellerMenu();
     void viewProduct(std:: string);
     void searchProduct(std::string);
     void addProduct(PRODUCT product);

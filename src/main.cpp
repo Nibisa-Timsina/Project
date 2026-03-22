@@ -2,13 +2,19 @@
 #include <limits>
 #include "SYSTEM.h"
 #include "USER_ACCOUNT.h"
-
+#include"../include/ConsoleHelper.h"
 using namespace std;
 
 int main()
 {
     cout<<endl;
-    cout << "=== Sales & Inventory System ===" << endl << endl;
+    ConsoleHelper::ClearScreen();
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("--------------SALES & INVENTORY SYSTEM---------------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
+    cout<<endl;
+     
     SYSTEM system;
     bool adminLoggedIn = false;
 
@@ -59,7 +65,8 @@ int main()
             getline(cin, location);
             cout << "Enter email address: ";
             getline(cin, email);
-            cout << "Select role (1 = Buyer, 2 = Seller): ";
+            cout << "Select role " << endl;
+            cout << "[1]  Buyer" << endl << "[2] Seller" << endl;
             cin >> roleChoice;
 
             if (cin.fail())
@@ -120,7 +127,12 @@ int main()
             while (adminLoggedIn)
             {
                 int adminChoice;
-                cout << "\n--- Admin Panel ---\n1. View all users\n2. Delete user\n3. Logout admin\nEnter choice: ";
+                ConsoleHelper::ClearScreen();
+                ConsoleHelper::SetColor(11);
+                ConsoleHelper::PrintHeader("-------ADMIN PANEL-------");
+                ConsoleHelper::ResetColor();
+                ConsoleHelper::PrintDivider();
+                cout << "\n[1] View all users\n[2] Delete user\n[3] Logout admin\nEnter choice: ";
                 cin >> adminChoice;
 
                 if (cin.fail())

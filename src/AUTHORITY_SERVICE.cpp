@@ -1,4 +1,5 @@
 #include "AUTHORITY_SERVICE.h"
+#include"../include/ConsoleHelper.h"
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -195,6 +196,11 @@ bool AUTHORITY_SERVICE::saveUsersToCsv() const
 
 bool AUTHORITY_SERVICE::registerUser(USER_ACCOUNT account) 
 {
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("------REGISTER USER-------");
+    ConsoleHelper::ResetColor();
+    cout << "User '" << account.getUsername() << "' registered successfully!" << endl;
+    ConsoleHelper::PrintDivider();
     for (int i = 0; i < registered_user.size(); i++)
     {
         if (registered_user[i].getUsername() == account.getUsername())
@@ -215,6 +221,9 @@ bool AUTHORITY_SERVICE::registerUser(USER_ACCOUNT account)
 
 USER* AUTHORITY_SERVICE::login(std::string username, std::string password)
 {
+    ConsoleHelper::PrintHeader("LOGIN");
+    ConsoleHelper::PrintDivider();
+    cout << "Attempting login for user: " << username << endl;
     bool usernameFound = false;
 
     for (int i = 0; i < registered_user.size(); i++)
@@ -274,7 +283,10 @@ bool AUTHORITY_SERVICE::verifyClient(const std::string& username, const std::str
 
 bool AUTHORITY_SERVICE::verifyAdmin(std::string passcode)
 {
-        if (passcode == admin_pass)
+    ConsoleHelper::PrintHeader("ADMIN VERIFICATION");
+    ConsoleHelper::PrintDivider();
+    cout << "Verifying admin access..." << endl;
+    if (passcode == admin_pass)
             {
                 return true;
             }
@@ -282,7 +294,6 @@ bool AUTHORITY_SERVICE::verifyAdmin(std::string passcode)
             {
                 return false;
             }
-
 }
 
 std::vector<USER_ACCOUNT> AUTHORITY_SERVICE::getAllRegisteredUsers() const

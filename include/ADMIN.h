@@ -11,6 +11,7 @@ class ADMIN: public USER
     ADMIN(const std:: string & pass );
     bool authenticate(AUTHORITY_SERVICE& auth);
     void performAction();
+    void AdminMenu();
     std:: string getUsername() const;
     void viewProduct();
     void searchProduct(std::string);
@@ -20,5 +21,4 @@ class ADMIN: public USER
     void manageSalesReport();
     void viewAllUsers();
     void generateSalesReport();
-
 };

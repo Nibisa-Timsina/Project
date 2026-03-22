@@ -1,6 +1,8 @@
+#include"../include/ConsoleHelper.h"
 #include"PRODUCT_REPO.h"
 #include<iostream>
 #include"PRODUCT.h"
+#include<iomanip>
 #include<set>
 #include<queue>
 using namespace std;
@@ -148,6 +150,10 @@ void PRODUCT_REPO:: searchByName(string name)
 }
 void PRODUCT_REPO:: getAllProducts()
 {
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("------TOTAL PRODUCTS------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
     int total_count = all_products.size();
     auto temp = sorted_price;
     while(!temp.empty())
