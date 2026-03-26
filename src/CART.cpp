@@ -56,7 +56,7 @@ void CART::CartMenu()
                     ConsoleHelper::ClearScreen();
                     ConsoleHelper::SetColor(11);
                     cout << "Enter category: ";
-                    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     getline(cin, cat);
                     cout << "Enter product name: ";
                     getline(cin, name);
@@ -74,7 +74,7 @@ void CART::CartMenu()
                     ConsoleHelper::ClearScreen();
                     ConsoleHelper::SetColor(11);
                     cout << "Enter product name to remove: ";
-                    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     getline(cin, name);
                     removeItem(name);
                 }
@@ -86,7 +86,7 @@ void CART::CartMenu()
                     ConsoleHelper::ClearScreen();
                     ConsoleHelper::SetColor(11);
                     cout << "Enter product name to update: ";
-                    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     getline(cin, name);
                     cout << "Enter new quantity: ";
                     cin >> qty;
@@ -123,7 +123,7 @@ void CART::addItem(const PRODUCT product)
     cout << "Product: " << product.getName() << " | Qty: " << product.getQuantity() << " | Price: $" << fixed << setprecision(2) << product.getPrice() << endl;
     ConsoleHelper::ResetColor();
     cout << "Press Enter to continue...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void CART::removeItem(const std::string product_name )
@@ -143,7 +143,7 @@ void CART::removeItem(const std::string product_name )
         cout << "Product not found!" << endl;
     }
     cout << "Press Enter to continue...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void CART::updateQuantity(const std::string product_name, int qnt)
@@ -164,7 +164,7 @@ void CART::updateQuantity(const std::string product_name, int qnt)
         cout << "Product not found!" << endl;
     }
     cout << "Press Enter to continue...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void CART::viewCart()
@@ -174,7 +174,6 @@ void CART::viewCart()
     cout << endl;
     ConsoleHelper::PrintDivider();
     cout << endl;
-    ConsoleHelper::SetColor(11);
     ConsoleHelper::SetColor(11);
     cout << string(62, '=') << endl;
     cout << "             🛒 YOUR CART" << endl;

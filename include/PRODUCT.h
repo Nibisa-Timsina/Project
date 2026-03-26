@@ -21,5 +21,7 @@ public:
     std::string getCategory() const;
     void displayInfo() const;
     void updateQuantity(int qty);
-    bool operator<(const PRODUCT &other) const;
+    
+    bool operator<(const PRODUCT& other) const;  
+    bool operator>(const PRODUCT& other) const;  
 };

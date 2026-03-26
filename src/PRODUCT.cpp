@@ -46,6 +46,10 @@ bool PRODUCT:: operator<( const PRODUCT& other) const
 {
     return product_price<other. product_price;
 }
+bool PRODUCT:: operator>( const PRODUCT& other) const
+{
+    return product_price<other. product_price;
+}
 void PRODUCT:: displayInfo() const
 {
     cout<<" Category: "<<product_category<<endl;

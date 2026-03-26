@@ -4,6 +4,10 @@
 #include "USER_ACCOUNT.h"
 #include"../include/ConsoleHelper.h"
 using namespace std;
+#include"PRODUCT_REPO.h"
+#include"PRODUCT.h"
+#include<string>
+using std::cout;
 
 int main()
 {
@@ -16,8 +20,8 @@ int main()
     cout<<endl;
      
     SYSTEM system;
+    
     bool adminLoggedIn = false;
-
     while (true)
     {
         int choice;
@@ -103,7 +107,66 @@ int main()
             if (user)
             {
                 cout << "Welcome, " << user->getUsername() << "!" << endl;
+            
+            while(1)
+            {
+                if(user->getAuthority()==ClientSELLER)
+                {
+                    cout<<"MENU\n"<<endl;
+                    cout<<"1. Add Product\n 2. Search Product\n 3. Logout\n"<<endl;
+                    int choice;
+                    cout<<"Select from the menu: ";
+                    cin>>choice;
+                    if(choice==1)
+                    {
+                        std:: string category,name;
+                        double price;
+                        int qty;
+                     cout<<"Enter the details:\n";
+                    cout<< "Category: \n Name: \n Price: \n Quantity: \n"<<endl;
+                    cin>>category>>name>>price>>qty;
+                    PRODUCT product(category, name,price, qty);
+                    system.addProduct(product);   
+                    }
+                    else if(choice==2)
+                    {
+                        std::string name;
+                        cout<<"Enter the product name: ";
+                        cin>>name;
+                        system.searchByName(name);
+                    }
+                    else if(choice==3)
+                    {
+                        system.logoutCurrentUser();
+                        break;
+                    }
+                }
+                else if(user->getAuthority()==ClientBUYER)
+                {
+                    cout<<"MENU";
+                    cout<<"1. Search Product\n 2. Logout"<<endl;
+                    int choice;
+                    cout<<"Select from the menu: "<<endl;
+                    cin>>choice;
+                    if(choice==1)
+                    {
+                        std::string name;
+                        cout<<"Enter the product name: ";
+                        cin>>name;
+                        system.searchByName(name);
+                    }
+                    else if(choice==2)
+                    {
+                        system.logoutCurrentUser();
+                        break;
+                    }
+                }
+                else{
+                    cout<<"invlaid"<<endl;
+                }
             }
+        }
+        
         }
         else if (choice == 3)
         {
@@ -132,9 +195,10 @@ int main()
                 ConsoleHelper::PrintHeader("-------ADMIN PANEL-------");
                 ConsoleHelper::ResetColor();
                 ConsoleHelper::PrintDivider();
-                cout << "\n[1] View all users\n[2] Delete user\n[3] Logout admin\nEnter choice: ";
+                cout << "\n--- Admin Panel ---\n1. Manage User\n2. view all Products\n3.Add Product\n4. Remove Product\n.5 Update Product\n6. Search Product\n7. logout\n ";
+                cout<<"Enter Choice: ";
                 cin >> adminChoice;
-
+                
                 if (cin.fail())
                 {
                     cin.clear();
@@ -164,14 +228,15 @@ int main()
                              << " | email: " << users[i].getMailAddress()
                              << endl;
                     }
-                }
-                else if (adminChoice == 2)
-                {
                     string usernameToDelete;
-                    cout << "Enter username to delete: ";
+              cout<<"Enter username to delete or 0 to go back: ";
                     getline(cin, usernameToDelete);
 
-                    if (system.deleteUser(usernameToDelete))
+                    if(usernameToDelete=="0")
+                    {
+                        continue;
+                    }
+                if (system.deleteUser(usernameToDelete))
                     {
                         cout << "User deleted successfully." << endl;
                     }
@@ -180,14 +245,48 @@ int main()
                         cout << "User not found or failed to update CSV." << endl;
                     }
                 }
-                else if (adminChoice == 3)
+                else if (adminChoice == 2)
                 {
-                    adminLoggedIn = false;
-                    cout << "Admin logged out." << endl;
+                    cout<<"All products:";
+                    system.getAllProducts();
                 }
-                else
+                else if(adminChoice==3)
                 {
-                    cout << "Invalid admin choice." << endl;
+                    std:: string category, name;
+                    double price;
+                    int qty;
+                    cout<<"Enter the details: ";
+                    cout<< "Category: \n Name: \n Price: \n Quantity: \n"<<endl;
+                    cin>>category>>name>>price>>qty;
+                    PRODUCT product(category, name,price, qty);
+                    system.addProduct(product);
+                    system.saveToFile();
+                }
+                else if(adminChoice==4)
+                {
+                    system.removeProduct();
+                    system.saveToFile();
+                }
+                else if(adminChoice==5)
+                {
+                    system.updateProduct();
+                    system.saveToFile();
+                }
+                else if(adminChoice==6)
+                {
+                    string name;
+                    cout << "Enter product name: ";
+                    getline(cin, name);
+                    system.searchByName(name);   
+                }
+                else if(adminChoice==7)
+                {
+                    system.logoutCurrentUser();
+                    adminLoggedIn=false;
+                }
+                else 
+                {
+                    cout<<"Invalid choice";
                 }
             }
         }
@@ -202,6 +301,6 @@ int main()
             cout << "Invalid choice. Try again." << endl;
         }
     }
-
+ 
     return 0;
 }

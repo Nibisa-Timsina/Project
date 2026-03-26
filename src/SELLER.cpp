@@ -11,13 +11,10 @@
 using namespace std;
 SELLER:: SELLER(USER_ACCOUNT sDetails){
     user_acc = sDetails;
-    full_name = sDetails.getFullname();
-    username = sDetails.getUsername();
-    password = sDetails.getPassword();
 }
- std:: string SELLER:: getUsername() const{return username;}
+ std:: string SELLER:: getUsername() const{return user_acc.getUsername();}
 bool SELLER:: authenticate(AUTHORITY_SERVICE& auth) {
- return auth.verifyClient(username, "");   
+ return auth.verifyClient(user_acc.getUsername(), "");   
 }
 void SELLER:: performAction(){
     cout<<"Seller interacting"<<endl;

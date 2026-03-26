@@ -9,18 +9,15 @@ using namespace std;
 #include"AUTHORITY_SERVICE.h"
 BUYER:: BUYER(USER_ACCOUNT Bdetails){
     user_acc = Bdetails;
-    full_name = Bdetails.getFullname();
-    username = Bdetails.getUsername();
-    password = Bdetails.getPassword();
 }
 bool BUYER:: authenticate(AUTHORITY_SERVICE& auth) {
-     return auth.verifyClient(username, "");
+     return auth.verifyClient(user_acc.getUsername(), "");
 }
 void BUYER:: performAction() {
     cout<<"Buyer interacting"<<endl;
 }
 std:: string BUYER:: getUsername()const{
-    return username;
+    return user_acc.getUsername();
 }
 void BUYER::BuyerMenu()
 {
@@ -86,15 +83,9 @@ void BUYER:: searchProduct(std:: string keyword){
     else
          ConsoleHelper::PrintError();
 }
-void BUYER:: addToCart(){
-    //LOGIC
-    ConsoleHelper::SetColor(11);
-    ConsoleHelper::PrintHeader("--------ITEM ADDED SUCCESSFULLY-------");
-    ConsoleHelper::ResetColor();    
-    ConsoleHelper::PrintDivider();
-}
-void BUYER:: checkout(){}
+
 void BUYER:: myProducts(){}
+
 void BUYER:: placeOrder(){
         //LOGIC
     ConsoleHelper::SetColor(11);

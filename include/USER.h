@@ -8,8 +8,6 @@ class USER
 {
    protected:
    USER_ACCOUNT user_acc;
-   std::string full_name, username, password;
-   int age;
    private:
    CART* cart;
    public:
@@ -20,8 +18,6 @@ class USER
     virtual ~USER()=default;
     virtual void viewProduct(std:: string)=0;
     virtual void searchProduct(std:: string)=0;
-    virtual void addToCart();
-    virtual void checkout();
    
     USER_ACCOUNT getAccount() const;
     Authority getAuthority() const;

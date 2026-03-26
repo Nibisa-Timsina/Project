@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-enum Authority { Guest, ClientSELLER, ClientBUYER, Admin };
+enum Authority { ClientBUYER, ClientSELLER, Admin };
 
 class USER_ACCOUNT
 {
@@ -16,8 +16,8 @@ class USER_ACCOUNT
     public:
        USER_ACCOUNT();
        USER_ACCOUNT(std:: string full_name, std:: string username, std:: string password, std:: string contact_num, int age, std:: string location, std:: string  mail_address, Authority auth);
-        Authority getAuthority() const;
         void setAuthority(Authority auth);
+        Authority getAuthority() const;
         std::string getFullname() const;
         std::string getPassword() const;
         std::string getUsername() const;

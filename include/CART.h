@@ -10,9 +10,9 @@ class CART
     public:
     void printMenu();
     void CartMenu();
-    void addItem(PRODUCT product);
-void removeItem(std::string product_name );
-void updateQuantity(std::string product_name, int qnt);
+    void addItem(const PRODUCT product);
+    void removeItem(const std::string product_name);
+    void updateQuantity(const std::string product_name, int qnt);
     void viewCart();
     double calculateTotal();
 };

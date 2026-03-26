@@ -12,7 +12,7 @@ USER_ACCOUNT::USER_ACCOUNT(){
     age=0;
     location=" ";
     mail_address=" ";
-    authority= Guest;
+    authority= ClientBUYER;
         
 }
 USER_ACCOUNT:: USER_ACCOUNT(std:: string full_name, std:: string username, std:: string password, std:: string contact_num, int age, std:: string location, std:: string  mail_address, Authority auth)

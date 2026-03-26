@@ -20,8 +20,13 @@ void ADMIN:: performAction()
     cout<<"Admin entering system"<<endl;
 }
 std::string ADMIN::getUsername() const {
-    return username;
+    return user_acc.getUsername();
 }
+
+// ------------------- ADMIN FUNCTIONS (UI to be implemented in main.cpp) -------------------
+// Commented out as per user request - UI implementation on hold pending completion of main.cpp admin panel
+
+/*
 void ADMIN::AdminMenu()
 {
     int choice;
@@ -81,8 +86,10 @@ void ADMIN::AdminMenu()
         }
     } while(choice != 0);
 }
-// ------------------- ADMIN FUNCTIONS -------------------
-void ADMIN:: viewProduct(){
+*/
+
+// void ADMIN:: viewProduct(){
+    /*
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("----ALL PRODUCTS----");
 
@@ -94,8 +101,11 @@ void ADMIN:: viewProduct(){
     ConsoleHelper::PrintDivider();
     //logic
     ConsoleHelper::PrintDivider();
-}
-void  ADMIN:: searchProduct(std:: string keyword){
+    */
+// }
+
+// void  ADMIN:: searchProduct(std:: string keyword){
+    /*
     ConsoleHelper::PrintHeader("GUEST-Search Products");
     ConsoleHelper::PrintHeader("-SEARCH OPTION-");
     cout << "[1] ProductName" << endl;
@@ -113,8 +123,11 @@ void  ADMIN:: searchProduct(std:: string keyword){
             //logic
     else
          ConsoleHelper::PrintError();
-}
-void ADMIN :: manageProduct(std:: string){
+    */
+// }
+
+// void ADMIN :: manageProduct(std:: string){
+    /*
     int choice;
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("MANAGE PRODUCT");
@@ -130,8 +143,11 @@ void ADMIN :: manageProduct(std:: string){
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
-}
+    */
+// }
+
 void ADMIN :: deleteProduct(std:: string productName){
+    /*
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("DELETE PRODUCT");
     cout << "Enter productName:" << endl;
@@ -140,17 +156,22 @@ void ADMIN :: deleteProduct(std:: string productName){
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
+    */
 }
+
 void ADMIN:: updateProduct(PRODUCT product){
+    /*
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("UPDATE PRODUCT");
         //logic
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
+    */
 }
-void viewAllUser()
-{
+
+void ADMIN::viewAllUsers(){
+    /*
     int choice;
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("VIEW ALL USERS");
@@ -167,21 +188,28 @@ void viewAllUser()
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
+    */
 }
+
 void ADMIN:: manageSalesReport(){
+    /*
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("MANAGE SALES REPORT");
         //logic
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
+    */
 }
+
 void ADMIN::generateSalesReport()
 {
+    /*
     ConsoleHelper::ClearScreen();
     ConsoleHelper::PrintHeader("GENERATE SALES REPORT");
         //logic
     ConsoleHelper::PrintDivider();
     cin.ignore();
     cin.get();
+    */
 }

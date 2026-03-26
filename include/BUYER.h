@@ -7,8 +7,6 @@
 #include"USER_ACCOUNT.h"
 class BUYER: public USER
 {
-    private:
-    //BILL purchaseHistory;
     public:
     BUYER(USER_ACCOUNT Bdetails);
 
@@ -18,8 +16,6 @@ class BUYER: public USER
     void BuyerMenu();
     void viewProduct(std:: string);
     void searchProduct(std:: string);
-    void addToCart();
-    void checkout();
     void myProducts();
     void placeOrder();
     void viewCart();

@@ -121,7 +121,7 @@ void AUTHORITY_SERVICE::loadUsersFromCsv()
         }
 
         int parsedAge = 0;
-        int parsedAuthority = static_cast<int>(Guest);
+        int parsedAuthority = static_cast<int>(ClientBUYER);
 
         try
         {
@@ -133,9 +133,9 @@ void AUTHORITY_SERVICE::loadUsersFromCsv()
             continue;
         }
 
-        if (parsedAuthority < static_cast<int>(Guest) || parsedAuthority > static_cast<int>(Admin))
+        if (parsedAuthority < static_cast<int>(ClientBUYER) || parsedAuthority > static_cast<int>(Admin))
         {
-            parsedAuthority = static_cast<int>(Guest);
+            parsedAuthority = static_cast<int>(ClientBUYER);
         }
 
         USER_ACCOUNT account(
@@ -199,7 +199,6 @@ bool AUTHORITY_SERVICE::registerUser(USER_ACCOUNT account)
     ConsoleHelper::SetColor(11);
     ConsoleHelper::PrintHeader("------REGISTER USER-------");
     ConsoleHelper::ResetColor();
-    cout << "User '" << account.getUsername() << "' registered successfully!" << endl;
     ConsoleHelper::PrintDivider();
     for (int i = 0; i < registered_user.size(); i++)
     {
@@ -216,6 +215,7 @@ bool AUTHORITY_SERVICE::registerUser(USER_ACCOUNT account)
         return false;
     }
 
+    cout << "User '" << account.getUsername() << "' registered successfully!" << endl;
     return true;
 }
 

@@ -7,8 +7,6 @@
 #include"USER_ACCOUNT.h"
 class SELLER: public USER
 {
-    private:
-   // BILL purchaseHistory;
     public:
     SELLER(USER_ACCOUNT sDetails);
     bool  authenticate(AUTHORITY_SERVICE& auth);

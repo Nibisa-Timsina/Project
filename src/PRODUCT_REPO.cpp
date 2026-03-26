@@ -5,6 +5,8 @@
 #include<iomanip>
 #include<set>
 #include<queue>
+#include<sstream>
+#include<fstream>
 using namespace std;
 
 void PRODUCT_REPO:: addProduct(PRODUCT product)
@@ -23,15 +25,20 @@ void PRODUCT_REPO::rebuildSorting()
             sorted_price.push(all_products[i]);
         }
 }
-void PRODUCT_REPO:: showCategory()
-    {
-        set<string> category;
+std:: set<string> PRODUCT_REPO::getCategoryInfo()
+{
+    set<string> category;
 
         for(int i=0; i<all_products.size(); i++)
         {
              category.insert(all_products[i].getCategory());
         }
-        for(auto it:category)
+       return category;
+}
+void PRODUCT_REPO:: showCategory()
+    {
+        set<string> Info= getCategoryInfo();
+       for(auto it: Info)
         {
             cout<<it<<endl;
         }
@@ -40,10 +47,14 @@ void PRODUCT_REPO:: showCategory()
     {
         for(int i=0; i<all_products.size(); i++)
         {
-            if(category==all_products[i].getCategory())
+                if(category==all_products[i].getCategory())
             {
-                all_products[i].displayInfo();
+               cout<<i+1<<". ";
+               all_products[i].displayInfo();
             }
+            
+
+           
         }
     }
 
@@ -54,23 +65,28 @@ void PRODUCT_REPO:: removeProduct()
         cout<<"No product found, can't delete!!!";
         return;
     }
-    cout<<"Available Products!!"<<endl;
+    cout<<"Available Category!!"<<endl;
    showCategory();
     string choice;
     cout<<"Select the Category: ";
     cin>>choice;
+   set<string> verify= getCategoryInfo();
+   if(verify.count(choice)==0)
+   {
+        cout<<"Category not found!!";
+        return;
+   }
    showProductsByCategory(choice);
     int index;
     cout<<"Index No. ";
     cin>>index;
-    if(index<0 || index>all_products.size())
+    if(index<=0 || index>all_products.size())
     {
         cout<<"Invalid choice";
     }
     else{
         all_products.erase(all_products.begin() + index-1);
         cout<<"Removed successfully";
-    rebuildSorting();
     }
 
 }
@@ -140,20 +156,27 @@ void PRODUCT_REPO:: updateProduct()
 }
 void PRODUCT_REPO:: searchByName(string name)
 {
+    bool found = false;
     for(int i=0; i<all_products.size(); i++)
     {
         if(name==all_products[i].getName())
         {
             all_products[i].displayInfo();
+            found = true;
         }
     }
+    if(!found)
+    {
+        cout << "Product not found!" << endl;
+    }
 }
-void PRODUCT_REPO:: getAllProducts()
+void PRODUCT_REPO:: getAllProducts(bool showCount)
 {
     ConsoleHelper::SetColor(11);
     ConsoleHelper::PrintHeader("------TOTAL PRODUCTS------");
     ConsoleHelper::ResetColor();
     ConsoleHelper::PrintDivider();
+    rebuildSorting();
     int total_count = all_products.size();
     auto temp = sorted_price;
     while(!temp.empty())
@@ -161,6 +184,54 @@ void PRODUCT_REPO:: getAllProducts()
         temp.top().displayInfo();
         temp.pop();
     }
+    if (showCount==true)
+    {
     cout<<"Available Products In System: "<<total_count<<endl;
+    }
+   
 }
-    
+    void PRODUCT_REPO:: saveToFile()
+    {
+        std::ofstream my_file("my_file.csv");
+        if(!my_file)
+        {
+            cout<<"file not created";
+        }
+        for(int i=0; i<all_products.size(); i++)
+        {
+            my_file<<all_products[i].getCategory()<<","<<all_products[i].getName()<<","<<all_products[i].getPrice()<<","<<all_products[i].getQuantity()<<endl;
+        }
+        
+
+    }
+    void PRODUCT_REPO:: loadFromFile()
+    {
+        ifstream my_file("my_file.csv", ios::in);
+        if(!my_file)
+        {
+            cout<<"file doesn't exist";
+
+        }
+        string line;
+        while(getline(my_file, line))
+        {
+            std::stringstream ss(line);
+            std:: string category, name;
+            double price;
+            int qty;
+            getline(ss, category, ',');
+            getline(ss,name,',');
+            ss>>price;
+            ss.ignore();
+            ss>>qty;
+            ss.ignore();
+            PRODUCT p(category,name, price, qty);
+            all_products.push_back(p);
+            sorted_price.push(p);
+            
+        }
+    }
+    PRODUCT_REPO::PRODUCT_REPO()
+    {
+        loadFromFile();
+    }

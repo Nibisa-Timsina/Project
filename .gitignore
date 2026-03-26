@@ -31,7 +31,15 @@ TestResults/
 *.nupkg
 packages/
 
-# Ignore backup and autosave files
+# Backup and autosave files
 *.bak
 *.swp
 *.tmp
+
+# Team-only documentation (not tracked in git)
+TEAM_README.md
+update-team-readme.ps1
+
+# Local commit tracking logs
+.commit_log.txt
+.git/hooks/post-commit
