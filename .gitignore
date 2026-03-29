@@ -1,0 +1,45 @@
+# Ignore executables
+*.exe
+
+# Ignore Visual Studio temporary files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Visual Studio cache
+.vs/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+bin/
+obj/
+
+# Ignore generated files
+*.log
+*.tlog
+*.pdb
+*.idb
+
+# Ignore test results
+TestResults/
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+
+# Backup and autosave files
+*.bak
+*.swp
+*.tmp
+
+# Team-only documentation (not tracked in git)
+TEAM_README.md
+update-team-readme.ps1
+
+# Local commit tracking logs
+.commit_log.txt
+.git/hooks/post-commit
