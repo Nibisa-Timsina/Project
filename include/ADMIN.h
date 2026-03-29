@@ -18,5 +18,6 @@ class ADMIN: public USER
     void manageSalesReport();
     void viewAllUsers();
     void generateSalesReport();
-
+    void viewProduct(std::string productName) override;
+    void searchProduct(std::string productName) override;
 };

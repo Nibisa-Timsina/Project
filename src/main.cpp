@@ -2,22 +2,22 @@
 #include <limits>
 #include "SYSTEM.h"
 #include "USER_ACCOUNT.h"
-#include"../include/ConsoleHelper.h"
+#include "../include/ConsoleHelper.h"
 using namespace std;
-#include"PRODUCT_REPO.h"
-#include"PRODUCT.h"
-#include<string>
+#include "PRODUCT_REPO.h"
+#include "PRODUCT.h"
+#include <string>
 using std::cout;
 
 int main()
 {
-    cout<<endl;
+    cout << endl;
     ConsoleHelper::ClearScreen();
     ConsoleHelper::SetColor(11);
     ConsoleHelper::PrintHeader("--------------SALES & INVENTORY SYSTEM---------------");
     ConsoleHelper::ResetColor();
     ConsoleHelper::PrintDivider();
-    cout<<endl;
+    cout << endl;
      
     SYSTEM system;
     
