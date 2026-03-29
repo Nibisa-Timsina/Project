@@ -5,8 +5,11 @@ using namespace std;
 #include"AUTHORITY_SERVICE.h"
 #include"../include/ConsoleHelper.h"
 #include"SYSTEM.h"
-USER::USER()
+#include"../include/CART.h"
+
+USER::USER() : cart(nullptr)
 {
+    cart = new CART();
 }
 
 USER_ACCOUNT USER::getAccount() const {

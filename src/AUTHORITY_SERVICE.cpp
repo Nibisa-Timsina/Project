@@ -247,11 +247,9 @@ USER* AUTHORITY_SERVICE::login(std::string username, std::string password)
         }
 
         cout << "Login Successful >-<" << endl;
-        if (registered_user[i].getAuthority() == ClientBUYER)
-        {
-            return new BUYER(registered_user[i]);
-        }
-        return new SELLER(registered_user[i]);
+        // Don't create BUYER/SELLER here - SYSTEM will do that
+        // AUTHORITY_SERVICE cannot know about PRODUCT_REPO
+        return nullptr;  // SYSTEM will handle user object creation
     }
 
     if (!usernameFound)
@@ -313,5 +311,27 @@ bool AUTHORITY_SERVICE::deleteUserByUsername(const std::string& username)
     }
 
     return false;
+}
+
+USER_ACCOUNT* AUTHORITY_SERVICE::verifyAndGetAccount(const std::string& username, const std::string& password)
+{
+    for (int i = 0; i < registered_user.size(); i++)
+    {
+        if (registered_user[i].getUsername() == username)
+        {
+            if (registered_user[i].getPassword() == password)
+            {
+                cout << "Login Successful >-<" << endl;
+                return &registered_user[i];
+            }
+            else
+            {
+                cout << "Password incorrect T-T" << endl;
+                return nullptr;
+            }
+        }
+    }
+    cout << "Username Incorrect T-T" << endl;
+    return nullptr;
 }
 

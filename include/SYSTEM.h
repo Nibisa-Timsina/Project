@@ -12,6 +12,12 @@ class SYSTEM
     AUTHORITY_SERVICE auth;
     PRODUCT_REPO repo;
     bool isAdminLogggedin;
+    
+    void displayMainMenu();
+    void handleRegistration();
+    void handleUserLogin();
+    void handleAdminLogin();
+    
     public:
     SYSTEM();
 
@@ -28,5 +34,8 @@ class SYSTEM
     void searchByName(string name);
     void getAllProducts();
     void saveToFile();
+    PRODUCT_REPO& getRepo();
+    AUTHORITY_SERVICE& getAuthService();
+    void run();
 };
 
