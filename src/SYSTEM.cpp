@@ -60,25 +60,7 @@ bool SYSTEM::deleteUser(const std::string& username)
 }
 
 
-void SYSTEM::logoutCurrentUser()
-{
-    if(isAdminLogggedin==true)
-    {
-        isAdminLogggedin= false;
-        cout<<"Admin logout"<<endl;
-        return;
-    }
-    if (!current_user) {
-        cout << "No user is currently logged in." << endl;
-        return;
-    }
-
-    std::string uname = current_user->getUsername();
-    delete current_user;
-    current_user = nullptr;
-    cout << "Session ended for " << uname << endl;
-}
-    void SYSTEM:: addProduct(PRODUCT product){
+void SYSTEM:: addProduct(PRODUCT product){
         if(isAdminLogggedin){
             repo.addProduct(product);
             return;

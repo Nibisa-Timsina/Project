@@ -25,8 +25,7 @@ class SYSTEM
     bool adminLogin(const std::string& passcode);
     std::vector<USER_ACCOUNT> getAllUsers() const;
     bool deleteUser(const std::string& username);
-    USER* process(bool isLogin, USER_ACCOUNT account); 
-    void logoutCurrentUser();
+    USER* process(bool isLogin, USER_ACCOUNT account);
     void addProduct(PRODUCT product);
     void removeProduct();
     void updateProduct();
