@@ -186,6 +186,7 @@ void USER::handleUserRegistrationUI(AUTHORITY_SERVICE& auth_service)
     }
     cout << "\nPress Enter to continue...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 }
 
 // UI Handler for User Login - All console input/output here
