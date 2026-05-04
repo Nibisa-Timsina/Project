@@ -144,7 +144,7 @@ void SYSTEM:: displayMainMenu()
     ConsoleHelper::PrintHeader("--------------SALES & INVENTORY SYSTEM---------------");
     ConsoleHelper::ResetColor();
     ConsoleHelper::PrintDivider();
-    cout << "\n1. User Login\n2. Admin Login\n 4. Exit\n";
+    cout << "\n1. User Login\n2. Admin Login\n 3. Exit\n";
     cout << "Enter choice: ";
 }
 

@@ -5,6 +5,7 @@
 using namespace std;
 #include"../include/ConsoleHelper.h"
 #include"../include/USER.h"
+#include<CART.h>
 //#include"../include/BILL.h"
 #include"../include/PRODUCT.h"
 #include"AUTHORITY_SERVICE.h"
@@ -133,33 +134,33 @@ void BUYER:: startSession()
         }
     }
 }
-// void BUYER:: myProducts(){}
+void BUYER:: myProducts(){}
 
-// void BUYER:: placeOrder(){
-//         //LOGIC
-//     ConsoleHelper::SetColor(11);
-//     ConsoleHelper::PrintHeader("--------PLACE ORDER-------");
-//     ConsoleHelper::ResetColor();
-//     ConsoleHelper::PrintDivider();
-// }
-// void BUYER:: viewCart(){
-//     ConsoleHelper::SetColor(11);
-//     ConsoleHelper::PrintHeader("--------VIEW CART-------");
-//     ConsoleHelper::ResetColor();
-//     ConsoleHelper::PrintDivider();
-//     //LOGIC
-// }
-// void BUYER :: editCart(){
-//     ConsoleHelper::SetColor(11);
-//     ConsoleHelper::PrintHeader("--------EDIT CART-------");
-//     ConsoleHelper::ResetColor();
-//     ConsoleHelper::PrintDivider();
-//     //LOGIC
-// }
-// void  BUYER:: requestBill(){
-//     ConsoleHelper::SetColor(11);
-//     ConsoleHelper::PrintHeader("--------BILL-------");
-//     ConsoleHelper::ResetColor();
-//     ConsoleHelper::PrintDivider();
-//     //LOGIC
-// }
+void BUYER:: placeOrder(){
+        //LOGIC
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("--------PLACE ORDER-------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
+}
+void BUYER:: viewCart(){
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("--------VIEW CART-------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
+    //LOGIC
+}
+void BUYER :: editCart(){
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("--------EDIT CART-------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
+    //LOGIC
+}
+void  BUYER:: requestBill(){
+    ConsoleHelper::SetColor(11);
+    ConsoleHelper::PrintHeader("--------BILL-------");
+    ConsoleHelper::ResetColor();
+    ConsoleHelper::PrintDivider();
+    //LOGIC
+}
